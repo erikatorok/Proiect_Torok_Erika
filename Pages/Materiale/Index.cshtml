@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model Proiect_Torok_Erika.Pages.Materiale.IndexModel
 
 @{
@@ -20,12 +20,20 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Material) {
-        <tr>
+
+@foreach (var item in Model.MaterialData.Materiale) 
+{
+            string selectedRow = "";
+            if (item.ID == Model.MaterialID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr> class="selectedRow">
             <td>
                 @Html.DisplayFor(modelItem => item.NumeMaterial)
             </td>
             <td>
+                    <a asp-page="./Index" asp-route-id="@item.ID">Select</a> |
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>

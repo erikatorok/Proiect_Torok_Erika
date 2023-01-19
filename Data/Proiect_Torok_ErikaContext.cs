@@ -17,5 +17,6 @@ namespace Proiect_Torok_Erika.Data
         public DbSet<Proiect_Torok_Erika.Models.Client> Client { get; set; } = default!;
 
         public DbSet<Proiect_Torok_Erika.Models.Material> Material { get; set; }
+
     }
 }
